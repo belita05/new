@@ -163,7 +163,7 @@ alignItems:'center'
   color:'#fff',
   height:50,
   borderRadius:5,
-  backgroundColor:'#378CE8',
+  backgroundColor:'#E37D1E',
   display:'flex',
 marginTop:2,
   justifyContent:'center',

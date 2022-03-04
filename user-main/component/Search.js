@@ -75,7 +75,7 @@ function searchLocation(){
    <Nav text={'Hotel Search'}></Nav>
 
     <View style= {styles.Search}> 
-      <TextInput style ={styles.SearchInput}  onChangeText={OnLocationChange} placeholder='Search Hotel By Location'></TextInput>
+      <TextInput style ={styles.SearchInput}  onChangeText={OnLocationChange} placeholder='Search Location'></TextInput>
 
       <Ionicons  name='search' style={styles.icon} color={'#000'} size={25} onPress={searchLocation}></Ionicons>
       </View>
