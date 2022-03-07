@@ -74,7 +74,7 @@ firebase.auth().signInWithEmailAndPassword(Email,Password).then(() =>{
       <Image style={styles.logo} source={SubLogo}/>
      </View>
      <View style ={styles.ButtomView}>
-     <Text style={styles.Heading}>Sign In Here</Text>
+     <Text style={styles.Heading}>Sign In</Text>
      <TextInput
      value={Email}
         style={styles.input}
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
       marginTop:40
     },
     input: {
-        width:'90%',
+        width:'80%',
         color:'#000',
         borderRadius:5,
         height:50,
@@ -165,16 +165,17 @@ alignItems:'center'
   borderRadius:5,
   backgroundColor:'#E37D1E',
   display:'flex',
-marginTop:2,
+  marginTop:5,
   justifyContent:'center',
-  alignItems:'center'
+  alignItems:'center',
+  marginBottom: 10
   
     },    ButtonReg:{
         width:'80%',
         color:'#fff',
         height:50,
         borderRadius:5,
-        backgroundColor:'#2B39EB',
+        backgroundColor:'#E3AC1E',
         display:'flex',
       marginTop:5,
       marginBottom:10,
@@ -200,9 +201,10 @@ marginTop:2,
         fontSize: 30,
         fontWeight:200,
         lineHeight: 50,
+        alignItems: 'center',
         width:'85%',
         fontWeight: "bold",
-        textAlign: 'left',
+        textAlign: 'center',
 
       }
   });

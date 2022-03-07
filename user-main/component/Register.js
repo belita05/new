@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
       flex: 1,
     },
     input: {
-        width:'90%',
+        width:'80%',
         color:'#000',
         borderRadius:5,
         height:50,
@@ -217,10 +217,11 @@ alignItems:'center'
   width:'80%',
   color:'#fff',
   height:50,
-  borderRadius:20,
+  borderRadius: 5,
   backgroundColor:'#E3AC1E',
   display:'flex',
-marginBottom:5,
+marginBottom:30,
+marginTop: 10,
   justifyContent:'center',
   alignItems:'center'
   
@@ -254,7 +255,7 @@ marginBottom:5,
         color: "white",
         fontSize: 15,
         margin:1,
-        width:'85%',
+        width:'80%',
         fontWeight: "bold",
         
 
@@ -266,7 +267,7 @@ marginBottom:5,
         lineHeight: 50,
         width:'85%',
         fontWeight: "bold",
-        textAlign: 'left',
+        textAlign: 'center',
 
       }
   });

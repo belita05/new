@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
         color:'#000',
         height:50,
         borderRadius:5,
-        backgroundColor:'#2B39EB',
+        backgroundColor:'black',
         display:'flex',
         margin:20,
         justifyContent:'center',
