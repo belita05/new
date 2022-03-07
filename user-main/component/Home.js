@@ -45,7 +45,7 @@ SearchHotel();
     <View style={styles.container}>
 <Nav text={'Home'}></Nav>
  <View style ={styles.ButtomView}>
- <Text style={styles.Label}>Where Are Your Going</Text>
+ <Text style={styles.Label}>Where are you going</Text>
 <TextInput
 
 value={Town}

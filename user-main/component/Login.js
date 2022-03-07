@@ -55,7 +55,7 @@ return setdisplayFormErr(true);
 }
 setisLoading(true);
 firebase.auth().signInWithEmailAndPassword(Email,Password).then(() =>{
-  navigation.navigate('Test', {name: "asf", email: ""})
+  navigation.navigate('TabScreen')
   setisLoading(false);
 }).catch(err => {
   setisLoading(false);

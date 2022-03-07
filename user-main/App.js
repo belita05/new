@@ -5,7 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './component/Login';
 import Register from './component/Register';
-import Test from './component/Test';
+import TabScreen from './component/TabScreen';
 import HotelView from './component/HotelView';
 import RoomsView from './component/RoomsView';
 import Available from './component/Available';
@@ -13,6 +13,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 import firebase from 'firebase';
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -30,7 +31,7 @@ export default function App() {
            options={{header: () => null}} />
             <Stack.Screen name="Register" component={Register} 
            options={{header: () => null}} />
-            <Stack.Screen name="Test" component={Test} 
+            <Stack.Screen name="TabScreen" component={TabScreen} 
            options={{header: () => null}} />
              <Stack.Screen name="HotelView" component={HotelView} 
            options={{header: () => null}} />
