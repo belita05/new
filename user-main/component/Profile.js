@@ -146,9 +146,9 @@ return (
 <TouchableOpacity onPress={Validation}  style={styles.Button} >
    <Text style={styles.ButtonText}>Update Infomation</Text>
 </TouchableOpacity>
-<TouchableOpacity onPress={Logout}  style={styles.ButtonLogout} >
+{/* <TouchableOpacity onPress={Logout}  style={styles.ButtonLogout} >
      <Text style={styles.ButtonText}>Logout</Text>
-  </TouchableOpacity>
+  </TouchableOpacity> */}
 </View>
 
 {displayFormErr == true?
@@ -235,32 +235,32 @@ alignItems:'center'
 width:'90%',
 color:'#000',
 height:50,
-borderRadius:60,
-backgroundColor:'#2B39EB',
+borderRadius:10,
+backgroundColor:'#E3AC1E',
 display:'flex',
 marginBottom:5,
 justifyContent:'center',
 alignItems:'center'
 
   },
-  ButtonLogout:{
-    width:'90%',
-    color:'#000',
-    height:50,
-    borderRadius:60,
-    backgroundColor:'green',
-    display:'flex',
-    marginBottom:5,
-    justifyContent:'center',
-    alignItems:'center'
+  // ButtonLogout:{
+  //   width:'90%',
+  //   color:'#000',
+  //   height:50,
+  //   borderRadius:10,
+  //   backgroundColor:'green',
+  //   display:'flex',
+  //   marginBottom:5,
+  //   justifyContent:'center',
+  //   alignItems:'center'
     
-      },
+  //     },
   ButtonPassword:{
     width:'90%',
     color:'#000',
     height:50,
-    borderRadius:60,
-    backgroundColor:'#378CE8',
+    borderRadius:10,
+    backgroundColor:'#FAF1A4',
     display:'flex',
     marginBottom:5,
     marginTop:15,

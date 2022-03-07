@@ -93,8 +93,9 @@ const styles = StyleSheet.create({
   ,
   HotelLocation:{
       marginLeft:2,
-   color:'grey'
-  },Info:{
+      color:'grey'
+  }, 
+  Info:{
       color:'#fff'
   },
   InfoView:{

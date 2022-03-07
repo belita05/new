@@ -1,5 +1,5 @@
 import { Pressable,ImageBackground,TouchableOpacity,Image,StyleSheet,TextInput, Button, View,Text, Alert ,Platform} from 'react-native';
-import Lodge from './../../assets/lodge3.jpg'
+import Lodge from './../../assets/bed.png'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import Nav from './Nav';
 import {useNavigation} from '@react-navigation/native'

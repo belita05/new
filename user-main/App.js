@@ -39,6 +39,7 @@ export default function App() {
            options={{header: () => null}} />
              <Stack.Screen name="Available" component={Available} 
            options={{header: () => null}} />
+           
       </Stack.Navigator>
     </NavigationContainer>
     );
