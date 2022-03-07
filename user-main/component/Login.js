@@ -168,7 +168,7 @@ alignItems:'center'
   marginTop:5,
   justifyContent:'center',
   alignItems:'center',
-  marginBottom: 10
+  
   
     },    ButtonReg:{
         width:'80%',

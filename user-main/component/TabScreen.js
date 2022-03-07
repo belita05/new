@@ -11,7 +11,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 const Tab = createBottomTabNavigator();
 
 
-const Test = () => {
+const TabScreen = () => {
    
         return(
     
@@ -72,4 +72,4 @@ const Test = () => {
     
 }
  
-export default Test;
+export default TabScreen;
