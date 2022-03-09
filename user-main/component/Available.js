@@ -14,7 +14,7 @@ export default function Available() {
       
       <ScrollView>
         <Nav text={'Available Hotels'}></Nav>
-      <HotelCard Town={id} ></HotelCard>
+      <HotelCard Town={id} ></HotelCard> 
       </ScrollView>
  
     </View>

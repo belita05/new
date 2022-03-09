@@ -9,6 +9,8 @@ import TabScreen from './component/TabScreen';
 import HotelView from './component/HotelView';
 import RoomsView from './component/RoomsView';
 import Available from './component/Available';
+import BookInfo from './component/BookInfo';
+import ConfirmBook from './component/ConfirmBook';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
@@ -39,6 +41,8 @@ export default function App() {
            options={{header: () => null}} />
              <Stack.Screen name="Available" component={Available} 
            options={{header: () => null}} />
+           <Stack.Screen name="BookInfo" component={BookInfo}/>
+           <Stack.Screen name="ConfirmBook" component={ConfirmBook}/>
            
       </Stack.Navigator>
     </NavigationContainer>

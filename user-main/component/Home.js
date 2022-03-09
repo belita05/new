@@ -8,7 +8,7 @@ import Search from './Search';
 
 import {useNavigation} from '@react-navigation/native'
 import { Icon } from 'react-native-elements';
-const Home=() =>{
+  const Home=() =>{
   const navigation = useNavigation();
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
@@ -22,27 +22,27 @@ const Home=() =>{
 
  const SearchHotel =() =>{
     navigation.navigate("Available",{
-      date:startDate,
-      adults:adults,
-      child:child,
-      nights:nights,
+      // date:startDate,
+      // adults:adults,
+      // child:child,
+      // nights:nights,
       Town:Town
     })    
   }
 
   const Validation = () =>{
     var form_inputs = [startDate,adults,child,nights,Town];
-if(form_inputs.includes('') || form_inputs.includes(undefined)){
- Alert.alert("Error","Please Fill In All The Information");
-  return ;
-}if(adults===0){
-  Alert.alert("Error","They Can't 0 Adults In The Room")
-return;
-}  
-if(nights=='0'){
-  Alert.alert("Error","Nights Cant be zero")
-return;
-} 
+// if(form_inputs.includes('') || form_inputs.includes(undefined)){
+//  Alert.alert("Error","Please Fill In All The Information");
+//   return ;
+// }if(adults===0){
+//   Alert.alert("Error","They Can't 0 Adults In The Room")
+// return;
+// }  
+// if(nights=='0'){
+//   Alert.alert("Error","Nights Cant be zero")
+// return;
+// } 
  
 SearchHotel();
   }
@@ -58,38 +58,10 @@ SearchHotel();
         keyboardType="default"
         onChangeText={(Town) => {setTown(Town)}}
       />
-      <View style={{flexDirection:'row',alignItems:'center',width:'100%',justifyContent: 'center'}}>
+      {/* <View style={{flexDirection:'row',alignItems:'center',width:'100%',justifyContent: 'center'}}>
        <Text style={styles.Label}>Check In:</Text>
-      <DatePicker
-      style={styles.inputDate}
-        date={startDate}
-        mode="date"
-        // placeholder="check in"
-        format="YYYY-MM-DD"
-        // minDate="0"
-        // maxDate="0"
-        confirmBtnText="Confirm"
-        cancelBtnText="Cancel"
-        onDateChange={(startDate) => {setStartDate(startDate)}}
-      />
-      </View>
-      <View style={{flexDirection:'row',alignItems:'center',width:'100%', justifyContent: 'center'}}>
-        
- <Text style={styles.Label}>Check Out:</Text>
-<DatePicker
-      style={styles.inputDate}
-        date={endDate}
-        mode="date"
-        // placeholder="check in"
-        format="YYYY-MM-DD"
-        // minDate="0"
-        // maxDate="0"
-        confirmBtnText="Confirm"
-        cancelBtnText="Cancel"
-  
-        onDateChange={(endDate) => {setEndDate(endDate)}}
-      />
-        </View>
+     
+        </View> */}
 {/*  */}
         {/* <View
             style={{

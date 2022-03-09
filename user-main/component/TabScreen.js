@@ -42,13 +42,13 @@ const TabScreen = () => {
         >
           <Tab.Screen
             name="Home"
-            component={Home}
+            component={Search}
             options={{header: () => null}}
         
           />
           <Tab.Screen
             name="Search"
-            component={Search}
+            component={Home}
             options={{header: () => null}}
            
           />
