@@ -1,9 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import { Pressable,ImageBackground,TouchableOpacity,Image,StyleSheet,TextInput,ScrollView, Button, View,Text, Alert ,Platform} from 'react-native';
-
+import {useNavigation} from '@react-navigation/native'
 import Lodge from './../assets/lodge3.jpg'
 import Ionicons from 'react-native-vector-icons/Ionicons'
-export default function RoomsView() {
+
+const RoomsView = () => {
+  const navigation = useNavigation();
+
   return (
     <View style ={styles.container} > 
     <Image style={styles.logo} source={Lodge}></Image>
@@ -49,9 +52,12 @@ export default function RoomsView() {
     
     </View>
     <View style={styles.buttonViewLayout}>
- <TouchableOpacity style={styles.Button} >
+    <TouchableOpacity onPress={()=> navigation.navigate("ConfirmBook")}  style={styles.Button} >
+     <Text style={styles.ButtonText}>Book Now</Text>
+  </TouchableOpacity>
+ {/* <TouchableOpacity style={styles.Button} >
 <Text style={styles.ButtonText}>Book Now</Text>
-</TouchableOpacity>
+</TouchableOpacity> */}
     </View>
 </View>
   );
@@ -66,7 +72,7 @@ const styles = StyleSheet.create({
  alignContent:'center',
  padding:10,
  margin:2,
- backgroundColor:'green',
+ backgroundColor:'#E3AC1E',
  borderRadius:20
 
   },
@@ -93,8 +99,9 @@ const styles = StyleSheet.create({
   ,
   HotelLocation:{
       marginLeft:2,
-   color:'grey'
-  },Info:{
+      color:'grey'
+  }, 
+  Info:{
       color:'#fff'
   },
   InfoView:{
@@ -114,7 +121,7 @@ const styles = StyleSheet.create({
       width:'85%',
       color:'#000',
       height:50,
-      backgroundColor:'green',
+      backgroundColor:'#E3AC1E',
       borderRadius:30,
       justifyContent:'center',
       alignItems:'center',
@@ -143,3 +150,4 @@ const styles = StyleSheet.create({
         
        }
 });
+export default RoomsView;

@@ -5,7 +5,10 @@ import HomeSearch from './Views/HotelSearch';
 import HotelCard from './Views/HotelCard';
 import { useState,useEffect} from 'react';
 import firebase from 'firebase';
+import {useNavigation} from '@react-navigation/native'
+
 export default function Search() {
+const navigation = useNavigation();
 const [Location,SetLocation]= useState("");
 const [search,setSearch] = useState(false);
 
@@ -17,7 +20,7 @@ const [hotels,setHotels] = useState([]);
       .get()
       .then(results=> results.docs)
       .then(docs => docs.map(doc => ({
-          id:docs.id,
+          id:doc.id,
        details:doc.data().details,
        hotelName:doc.data().hotelName,
        location:doc.data().location,
@@ -40,7 +43,7 @@ function OnLocationChange(value){
     .get()
     .then(results=> results.docs)
     .then(docs => docs.map(doc => ({
-        id:docs.id,
+        id:doc.id,
      details:doc.data().details,
      hotelName:doc.data().hotelName,
      location:doc.data().location,
@@ -59,7 +62,7 @@ function searchLocation(){
   .get()
   .then(results=> results.docs)
   .then(docs => docs.map(doc => ({
-      id:docs.id,
+      id:doc.id,
    details:doc.data().details,
    hotelName:doc.data().hotelName,
    location:doc.data().location,
@@ -70,6 +73,7 @@ function searchLocation(){
      
   );
 }
+console.log(hotels,"hotels----------------------")
   return (
     <View style={styles.container}>
    <Nav text={'Hotel Search'}></Nav>
@@ -102,7 +106,7 @@ function searchLocation(){
              <Text style={styles.Info}>5.0</Text>
              </View>
              <View style={styles.InfoView}>
-             <TouchableOpacity style={styles.Button} >
+             <TouchableOpacity style={styles.Button} onPress={()=> navigation.navigate("BookInfo",{key:hotel.id})}>
      <Text style={styles.ButtonText}>Book Now</Text>
   </TouchableOpacity>
              </View>

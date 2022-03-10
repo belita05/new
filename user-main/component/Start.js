@@ -18,7 +18,7 @@ export default function Start() {
 </Image>
  </View>
  <View style ={styles.ButtomView}>
-  <TouchableOpacity onPress={()=> navigation.navigate("Login")}  style={styles.Button} >
+  <TouchableOpacity onPress={()=> navigation.navigate("ConfirmBook")}  style={styles.Button} >
      <Text style={styles.ButtonText}>Get Started</Text>
   </TouchableOpacity>
  </View>
@@ -65,7 +65,7 @@ width:'90%',
 color:'#000',
 height:50,
 borderRadius:5,
-backgroundColor:'#E37D1E',
+backgroundColor:'#E3AC1E',
 display:'flex',
 margin:20,
 justifyContent:'center',
