@@ -14,47 +14,10 @@ import firebase from "firebase";
 export default function HotelView() {
   const navigation = useNavigation();
   
-  const route = useRoute();
-  const [Hotel, setHotel] = useState([]);
-  const id = route.params.key;
-  useEffect(() => {
-    firebase
-      .firestore()
-      .collection("Hotel")
-      .doc(id)
-      .get()
-      .then((documentSnapshot) => {
-        console.log("User exists: ", documentSnapshot.exists);
-
-        if (documentSnapshot.exists) {
-          console.log("User data: ", documentSnapshot.data());
-          setHotel(documentSnapshot.data());
-        }
-      });
-  }, []);
+  
   return (
     <View style={styles.container}>
-      <View>
-        <Image style={styles.logo} source={{ uri: Hotel["url"] }}></Image>
-        <Text style={styles.Hotelname}>{Hotel["hotelName"]}</Text>
-        <View style={styles.HotelLocationView}>
-          <View style={styles.InfoView}>
-            <Ionicons name="location" color={"#000"} size={25}></Ionicons>
-            <Text style={styles.Info}>{Hotel["location"]}</Text>
-          </View>
-        </View>
-        <View style={styles.HotelLocationView}>
-          <View style={styles.InfoView}>
-            <Ionicons name="star" color={"#000"} size={25}></Ionicons>
-            <Text style={styles.Info}>5.0</Text>
-          </View>
-        </View>
-       
-        
-      </View>
-      <TouchableOpacity onPress={()=> navigation.navigate("RoomsView")}  style={styles.ButtonReg} >
-         
-      </TouchableOpacity>
+     
       
       <Text style = {styles.Hotelnames}>Rooms Available</Text>
       <ScrollView  style ={styles.Rooms}>
@@ -73,6 +36,7 @@ const styles = StyleSheet.create({
     display: "flex",
     height: "60%",
     flex: 1,
+    marginTop: 40,
     borderRadius: 10,
   },
   Rooms: {
