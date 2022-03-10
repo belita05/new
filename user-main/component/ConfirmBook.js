@@ -11,23 +11,33 @@ const navigation = useNavigation();
 
     
     return (
-        <>
-        <Image style={styles.bed4} source={require("./../assets/bed.png")} >
-        </Image>
-       
+        
+        <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
+      
+        <View style={styles.imgContainer}>
+          <Image
+            style={styles.img}
+            resizeMode={"cover"}
+            source={{
+              uri: "https://images.unsplash.com/photo-1613618902610-95d88084ee11?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjJ8fGhvdGVsJTIwcm9vbXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+            }}
+          />
+        </View>
+        < Text style={styles.textInfo}>
+        <Text style={{flexDirection:'row'}}>CheckIn Date:</Text>
+        <Text style={{flexDirection:'row'}}>CheckIn Date:</Text>
+        <Text style={{flexDirection:'row'}}>CheckIn Date:</Text>
+        <Text style={{flexDirection:'row'}}>CheckIn Date:</Text>
+        </Text>
 
-              
-        {/* <SafeAreaView style={style.container}>  */}
+        <View style ={styles.ButtomView}>
+  <TouchableOpacity onPress={()=> navigation.navigate("ConfirmBook")}  style={styles.Button} >
+  <Text style={styles.ButtonText}>Get Started</Text>
+  </TouchableOpacity>
+  </View>
        
-
-   
-        <View style={styles.btn}>
-        <View style={{flex:1,marginBottom:20,justifyContent: 'flex-end',width:300,height:50 }}>
-       <Button onPress={()=> navigation.navigate("Stripe")} title='Book' color={'#E3AC1E'} ></Button>
-       </View>
-       </View> 
-       {/* </SafeAreaView> */}
-        </>
+       </SafeAreaView>
+        
     )
 }
 const styles = StyleSheet.create({
@@ -44,10 +54,43 @@ const styles = StyleSheet.create({
     width: 450
   },
 
-  textInfo:{
-      backgroundColor: 'red',
-      
-  }
+  imgContainer: {
+    width: "100%",
+    height: 400,
+    overflow: "hidden",
+    borderBottomLeftRadius: 40,
+    borderBottomRightRadius: 40,
+  },
+  img: {
+    width: "100%",
+    height: "100%",
+  },
+  ButtomView:{
+    width:'100%',
+    height:'60%',
+alignItems:'center'
+  },
+  Button:{
+width:'80%',
+color:'#000',
+height:50,
+borderRadius:5,
+backgroundColor:'#E3AC1E',
+marginBottom:60,
+justifyContent:'center',
+alignItems:'center'
+
+  },
+  ButtonText:{
+    color:"#fff",
+    fontWeight:'bold',
+    fontSize:16  },
+
+    textInfo:{
+        fontSize: 20,
+        flexDirection: 'row'
+
+    }
 
  
 });
