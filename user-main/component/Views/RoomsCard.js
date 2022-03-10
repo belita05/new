@@ -29,7 +29,7 @@ import {useNavigation} from '@react-navigation/native'
              <Text style={styles.Info}>breakfast</Text>
              </View>
              <View style={styles.InfoView}>
-             <TouchableOpacity onPress={()=> navigation.navigate("HotelView")}  style={styles.Button} >
+             <TouchableOpacity onPress={()=> navigation.navigate("ConfirmBook")}  style={styles.Button} >
      <Text style={styles.ButtonText}>View</Text>
   </TouchableOpacity>
              </View>
@@ -47,12 +47,13 @@ export default RoomsCard;
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#ecf0f1',
-      margin:10,
+      margin:20,
       borderRadius:5,
+      height:250,
     },
     logo:{
         width:'100%',
-        height:100,
+        height:'60%',
         borderTopLeftRadius:10,
         borderTopRightRadius:10,
     
