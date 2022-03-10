@@ -11,6 +11,7 @@ import RoomsView from './component/RoomsView';
 import Available from './component/Available';
 import BookInfo from './component/BookInfo';
 import ConfirmBook from './component/ConfirmBook';
+import Stripe from './component/Stripe';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
@@ -43,6 +44,7 @@ export default function App() {
            options={{header: () => null}} />
            <Stack.Screen name="BookInfo" component={BookInfo}/>
            <Stack.Screen name="ConfirmBook" component={ConfirmBook}/>
+           <Stack.Screen name= "Stripe" component={Stripe}/>
            
       </Stack.Navigator>
     </NavigationContainer>

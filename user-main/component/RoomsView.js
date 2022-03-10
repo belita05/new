@@ -52,7 +52,7 @@ const RoomsView = () => {
     
     </View>
     <View style={styles.buttonViewLayout}>
-    <TouchableOpacity onPress={()=> navigation.navigate("ConfirmBook")}  style={styles.Button} >
+    <TouchableOpacity onPress={()=> navigation.navigate("BookInfo")}  style={styles.Button} >
      <Text style={styles.ButtonText}>Book Now</Text>
   </TouchableOpacity>
  {/* <TouchableOpacity style={styles.Button} >

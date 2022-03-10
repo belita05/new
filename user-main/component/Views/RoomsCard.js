@@ -3,7 +3,8 @@ import Lodge from './../../assets/bed.png'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import Nav from './Nav';
 import {useNavigation} from '@react-navigation/native'
-const RoomsCard = (props) => {
+
+    const RoomsCard = (props) => {
     const navigation = useNavigation();
     return (
     <View style ={styles.container} > 
@@ -28,7 +29,7 @@ const RoomsCard = (props) => {
              <Text style={styles.Info}>breakfast</Text>
              </View>
              <View style={styles.InfoView}>
-             <TouchableOpacity onPress={()=> navigation.navigate("RoomsView")}  style={styles.Button} >
+             <TouchableOpacity onPress={()=> navigation.navigate("HotelView")}  style={styles.Button} >
      <Text style={styles.ButtonText}>View</Text>
   </TouchableOpacity>
              </View>
@@ -48,11 +49,10 @@ const styles = StyleSheet.create({
         backgroundColor: '#ecf0f1',
       margin:10,
       borderRadius:5,
-
     },
     logo:{
         width:'100%',
-        height:200,
+        height:100,
         borderTopLeftRadius:10,
         borderTopRightRadius:10,
     
