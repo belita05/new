@@ -192,7 +192,7 @@ const BookInfo = ({route,navigation}) => {
                     style.btnadd,
                     { backgroundColor: "white", flexDirection: "row" },
                   ]}
-                  onPress={() => setChildPlus(Math.max(1, childPlus + 1))}
+                  onPress={() => setChildPlus(Math.max(0, childPlus + 1))}
                 >
                   <Feather name="plus" size={22} color="black" />
                 </Pressable>
@@ -203,7 +203,7 @@ const BookInfo = ({route,navigation}) => {
                     style.btnadd,
                     { backgroundColor: "white", flexDirection: "row" },
                   ]}
-                  onPress={() => setChildPlus(Math.max(1, childPlus - 1))}
+                  onPress={() => setChildPlus(Math.max(0, childPlus - 1))}
                 >
                   <Feather name="minus" size={22} color="black" />
                 </Pressable>
@@ -290,6 +290,13 @@ const style = StyleSheet.create({
     display: "flex",
     // justifyContent: "flex-end",
     alignItems: "center",
+  },
+
+  ButtonText:{
+    fontWeight: 'bold',
+    color: '#fff',
+    
+
   },
 
   Button: {

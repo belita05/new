@@ -10,7 +10,7 @@ const RoomsCard = (props) => {
     const[Rooms,setRooms] = useState([]);
     const navigation = useNavigation();
    const HotelID = props.id;
-
+// const [data,setData]=useState()
    const route = useRoute();
    const startDate = route.params.sDate;
    const endDate = route.params.eDate;

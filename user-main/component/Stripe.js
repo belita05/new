@@ -1,7 +1,10 @@
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, Image, StatusBar} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import { CreditCardInput } from "react-native-credit-card-input";
-import { Secret_key,  TRIPE_PUBLISHABLE_KEY} from './Keys';
+import { Secret_key,  STRIPE_PUBLISHABLE_KEY} from './Keys';
+import { TextInput } from 'react-native-gesture-handler';
+
 
 
 const CURRENCY = 'USD';
@@ -52,9 +55,11 @@ function getCreditCardToken(creditCardData){
   });
 };
 
-const Stripe= () => {
+const Stripe= ({route}) => {
+const{Amount}=route.params
+  const navigation = useNavigation();
 
-
+console.log(Amount,'gggggggggggg')
   const [CardInput, setCardInput] = React.useState({})
 
   const onSubmit = async () => {
@@ -89,9 +94,12 @@ const Stripe= () => {
       if(pament_data.status == 'succeeded')
       {
         alert("Payment Successfully");
+        navigation.navigate("ApprovedPay")
+
       }
       else{
         alert('Payment failed');
+        navigation.navigate("BookInfo")
       }
     }
   };
@@ -146,13 +154,17 @@ const Stripe= () => {
         validColor="#fff"
         placeholderColor="#ccc"
         onChange={_onChange} />
+ 
+{/* <TouchableOpacity onPress={()=> navigation.navigate("ApprovedPay")}  style={styles.Button} >
+     <Text style={styles.ButtonText}>Pay Now {Amount}</Text>
+  </TouchableOpacity> */}
 
       <TouchableOpacity 
       onPress={onSubmit}
       style={styles.button}>
         <Text
           style={styles.buttonText}>
-          Pay Now
+          Pay Now {Amount}
         </Text>
       </TouchableOpacity>
     </View>
@@ -182,12 +194,31 @@ const styles = StyleSheet.create({
     marginTop:20,
     borderRadius:5
   },
-  buttonText : {
-    fontSize: 15,
-    color: '#f4f4f4',
-    fontWeight:'bold',
-    textTransform:'uppercase'
+  ButtomView:{
+    width:'100%',
+    height:'60%',
+    display:'flex',
+justifyContent:'flex-end',
+alignItems:'center'
   },
+
+  Button:{
+width:'90%',
+color:'#000',
+height:50,
+borderRadius:5,
+backgroundColor:'#E3AC1E',
+display:'flex',
+margin:20,
+justifyContent:'center',
+alignItems:'center'
+
+  },
+  ButtonText:{
+    color:"#fff",
+    fontWeight:'bold',
+    fontSize:16  },
+ 
   inputContainerStyle : {
     backgroundColor:'#fff',
     borderRadius:5

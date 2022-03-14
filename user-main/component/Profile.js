@@ -21,103 +21,103 @@ import FormApprove from "./Response/FormApprove";
 import firebase from "firebase";
 
 export default function Profile() {
-  // const navigation = useNavigation();
-  // const [LName, setLname] = useState("");
-  // const [FName, setFname] = useState("");
-  // const [Phone, setPhone] = useState("");
-  // const [Email, setEmail] = useState("");
-  // const [ErrMessage, SetErrMessage] = useState("");
-  // const [displayFormErr, setdisplayFormErr] = useState(false);
-  // const [successMessage, SetsuccessMessage] = useState("");
-  // const [isLoading, setisLoading] = useState(false);
+  const navigation = useNavigation();
+  const [LName, setLname] = useState("");
+  const [FName, setFname] = useState("");
+  const [Phone, setPhone] = useState("");
+  const [Email, setEmail] = useState("");
+  const [ErrMessage, SetErrMessage] = useState("");
+  const [displayFormErr, setdisplayFormErr] = useState(false);
+  const [successMessage, SetsuccessMessage] = useState("");
+  const [isLoading, setisLoading] = useState(false);
 
-  // useEffect(() => {
-  //   firebase
-  //     .database()
-  //     .ref(`/users/${firebase.auth().currentUser.uid}`)
-  //     .once("value")
-  //     .then((snapshot) => {
-  //       const data = snapshot.val();
+  useEffect(() => {
+    firebase
+      .database()
+      .ref(`/users/${firebase.auth().currentUser.uid}`)
+      .once("value")
+      .then((snapshot) => {
+        const data = snapshot.val();
 
-  //       setFname(data["fname"]);
-  //       setLname(data["lname"]);
-  //       setPhone(data["phone"]);
-  //       setEmail(data["email"]);
-  //     });
-  // }, []);
+        setFname(data["fname"]);
+        setLname(data["lname"]);
+        setPhone(data["phone"]);
+        setEmail(data["email"]);
+      });
+  }, []);
 
-  // const ResetPassword = () => {
-  //   setisLoading(true);
-  //   firebase
-  //     .auth()
-  //     .sendPasswordResetEmail(Email)
-  //     .then(() => {
-  //       setisLoading(false);
-  //       Alert.alert(
-  //         "Password Reset",
-  //         "A Reset Password Link Has Been Send To Your Email "
-  //       );
-  //     })
-  //     .catch((err) => {
-  //       setisLoading(false);
-  //       SetErrMessage(err.message);
-  //       setdisplayFormErr(true);
-  //     });
-  // };
+  const ResetPassword = () => {
+    setisLoading(true);
+    firebase
+      .auth()
+      .sendPasswordResetEmail(Email)
+      .then(() => {
+        setisLoading(false);
+        Alert.alert(
+          "Password Reset",
+          "A Reset Password Link Has Been Send To Your Email "
+        );
+      })
+      .catch((err) => {
+        setisLoading(false);
+        SetErrMessage(err.message);
+        setdisplayFormErr(true);
+      });
+  };
 
-  // const Validation = () => {
-  //   var form_inputs = [Email, FName, Phone, LName];
+  const Validation = () => {
+    var form_inputs = [Email, FName, Phone, LName];
 
-  //   if (form_inputs.includes("") || form_inputs.includes(undefined)) {
-  //     SetErrMessage("Please Fill In All Fields");
-  //     return setdisplayFormErr(true);
-  //   } else {
-  //     setisLoading(true);
-  //     Update();
-  //   }
-  // };
-  // const Update = () => {
-  //   firebase
-  //     .database()
-  //     .ref(`/users/${firebase.auth().currentUser.uid}`)
-  //     .update({
-  //       fname: FName,
-  //       lname: LName,
-  //       phone: Phone,
-  //     })
-  //     .then(() => {
-  //       Alert.alert("Update", "Your Profile was successfully Updated");
-  //       setisLoading(false);
-  //     })
-  //     .catch((err) => {
-  //       setisLoading(false);
-  //       SetErrMessage(err.message);
-  //       setdisplayFormErr(true);
-  //     });
-  // };
+    if (form_inputs.includes("") || form_inputs.includes(undefined)) {
+      SetErrMessage("Please Fill In All Fields");
+      return setdisplayFormErr(true);
+    } else {
+      setisLoading(true);
+      Update();
+    }
+  };
+  const Update = () => {
+    firebase
+      .database()
+      .ref(`/users/${firebase.auth().currentUser.uid}`)
+      .update({
+        fname: FName,
+        lname: LName,
+        phone: Phone,
+      })
+      .then(() => {
+        Alert.alert("Update", "Your Profile was successfully Updated");
+        setisLoading(false);
+      })
+      .catch((err) => {
+        setisLoading(false);
+        SetErrMessage(err.message);
+        setdisplayFormErr(true);
+      });
+  };
 
-  // function OnLnameChange(value) {
-  //   setLname(value);
-  // }
-  // function OnFnameChange(value) {
-  //   setFname(value);
-  // }
-  // function OnPhoneChange(value) {
-  //   setPhone(value);
-  // }
+  function OnLnameChange(value) {
+    setLname(value);
+  }
+  function OnFnameChange(value) {
+    setFname(value);
+  }
+  function OnPhoneChange(value) {
+    setPhone(value);
+  }
 
-  // const Logout = () => {
-  //   navigation.navigate("Login");
-  //   firebase.auth().signOut();
-  // };
+  const Logout = () => {
+    navigation.navigate("Login");
+    firebase.auth().signOut();
+  };
   return (
     <View style={styles.container}>
       <View style={styles.TopView}>
         <Text style={styles.Heading}>Update Your Details</Text>
-        {/* <Image style={styles.logo} source={profile}></Image> */}
+        <Image style={styles.logo} source={profile}></Image>
       </View>
       <View style={styles.ButtomView}>
-        {/* <Text style={styles.Label}>First Name</Text>
+        <Text style={styles.Label}>First Name</Text>
         <TextInput
           style={styles.input}
           value={FName}
@@ -149,18 +149,21 @@ export default function Profile() {
         <TouchableOpacity onPress={ResetPassword} style={styles.ButtonPassword}>
           <Text style={styles.ButtonText}>Reset Password</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={Validation} style={styles.Button}>
+        <TouchableOpacity onPress={Update} style={styles.Button}>
           <Text style={styles.ButtonText}>Update Infomation</Text>
-        </TouchableOpacity> */}
-        {/* <TouchableOpacity onPress={Logout}  style={styles.ButtonLogout} >
-     <Text style={styles.ButtonText}>Logout</Text>
-  </TouchableOpacity> */}
+        </TouchableOpacity>
+        <TouchableOpacity onPress={Logout} style={styles.ButtonLogout}>
+          <Text style={styles.ButtonText}>Logout</Text>
+        </TouchableOpacity>
+        {/* {
+        displayFormErr == true ? (
+          <FormError hideErrOverlay={setdisplayFormErr} err={ErrMessage} />
+        ) :(
+          <FormApprove />
+        )
+        
+      } */}
       </View>
-
-      {/* {displayFormErr == true ? (
-        <FormError hideErrOverlay={setdisplayFormErr} err={ErrMessage} />
-      ) : null}
-      {isLoading == true ? <FormApprove /> : null} */}
     </View>
   );
 }
@@ -262,3 +265,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 });
+
+
+
+// isLoading == true ? <FormApprove /> : null

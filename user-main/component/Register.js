@@ -53,6 +53,7 @@ export default function Register() {
                             }).then(() =>{
                               setSuccessMessage("Your Account Has Been Successfully Regitered");
                               setisLoading(false);
+                              navigation.navigate('Login')
 
                             });
 
