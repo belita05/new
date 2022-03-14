@@ -8,7 +8,6 @@ import Nav from "./Views/Nav";
 import { useRoute } from "@react-navigation/native";
 import { useNavigation } from "@react-navigation/native";
 import { useEffect, useState } from "react";
-
 import firebase from "firebase";
 
 export default function HotelView() {
@@ -17,11 +16,9 @@ export default function HotelView() {
   
   const id = route.params.key;
   return (
-    <View style={styles.container}>
-     
-      
-      <Text style = {styles.Hotelnames}>Rooms Available</Text>
-      <ScrollView  style ={styles.Rooms}>
+  <View style={styles.container}>
+  <Text style = {styles.Hotelnames}>Rooms Available</Text>
+   <ScrollView  style ={styles.Rooms}>
          
  <RoomsCard id = {id}></RoomsCard>
  
@@ -34,7 +31,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#fff",
     display: "flex",
-    height: "60%",
+    height: "80%",
     flex: 1,
     marginTop: 40,
     borderRadius: 10,

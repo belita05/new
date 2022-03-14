@@ -3,7 +3,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Nav from './Views/Nav';
 import HomeSearch from './Views/HotelSearch';
 import HotelCard from './Views/HotelCard';
-import { useState,useEffect} from 'react';
+import React, { useState,useEffect } from 'react';
 import firebase from 'firebase';
 import {useNavigation} from '@react-navigation/native'
 
@@ -99,7 +99,7 @@ console.log(hotels,"hotels----------------------")
 
              <View style={styles.InfoView} >
              <Ionicons name='cash-outline' color={'grey'} size={15}></Ionicons>
-             <Text style={styles.Info } >Starting Price : R {hotel.price}</Text>
+             <Text style={styles.Info } >Start Price : R {hotel.price}</Text>
              </View>
              <View style={styles.InfoView}>
              <Ionicons name='star' color={'grey'} size={15}></Ionicons>
@@ -107,31 +107,28 @@ console.log(hotels,"hotels----------------------")
              </View>
              <View style={styles.InfoView}>
              <TouchableOpacity style={styles.Button} onPress={()=> navigation.navigate("BookInfo",{key:hotel.id})}>
-     <Text style={styles.ButtonText}>Book Now</Text>
-  </TouchableOpacity>
+             <Text style={styles.ButtonText}>Book Now</Text>
+             </TouchableOpacity>
              </View>
-         </View>
+             </View>
         
     
     
 
     </View>
-        )
+    )
 
     }
 </View>
-   
-    
-    
-    </View>
-       </View>
+</View>
+</View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
+    
     marginTop:40,
     backgroundColor:'#fff'
   },
@@ -218,7 +215,7 @@ Button:{
     width:'80%',
     color:'#000',
     height:35,
-    backgroundColor:'green',
+    backgroundColor:'#E3AC1E',
     borderRadius:20,
     justifyContent:'center',
     alignItems:'center'
@@ -227,7 +224,7 @@ Button:{
       ButtonText:{
         color:"#fff",
         fontWeight:'bold',
-     }
+     },
 
 
 });

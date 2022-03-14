@@ -1,17 +1,7 @@
 import React, { useState } from "react";
 //import { ListItem } from 'react-native-elements';
 import { useNavigation } from "@react-navigation/native";
-import {
-  View,
-  Text,
-  StyleSheet,
-  SafeAreaView,
-  TextInput,
-  Button,
-  Image,
-  TouchableOpacity,
-  ScrollView,
-  Pressable,
+import {View,Text,StyleSheet,SafeAreaView,TextInput,Button,Image,TouchableOpacity,ScrollView,Pressable,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import DatePicker from "react-native-datepicker";
@@ -79,16 +69,16 @@ const BookInfo = ({route,navigation}) => {
               confirmBtnText="Confirm"
               cancelBtnText="Cancel"
               customStyles={{
-                dateIcon: {
-                  position: "absolute",
-                  left: 0,
-                  top: 4,
+              dateIcon: {
+              position: "absolute",
+              left: 0,
+              top: 4,
                   // marginLeft: 20,
                   // marginRight: 20,
                 },
                 dateInput: {
-                  alignItems: "center",
-                  justifyContent: "center",
+                alignItems: "center",
+                justifyContent: "center",
 
                   // marginLeft: 40,
                 },
@@ -110,10 +100,10 @@ const BookInfo = ({route,navigation}) => {
               confirmBtnText="Confirm"
               cancelBtnText="Cancel"
               customStyles={{
-                dateIcon: {
-                  position: "absolute",
-                  left: 0,
-                  top: 4,
+              dateIcon: {
+              position: "absolute",
+              left: 0,
+              top: 4,
                   // marginLeft: 20,
                   // marginRight: 20,
                   // flexDirection: 'column'

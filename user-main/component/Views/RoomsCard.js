@@ -94,13 +94,13 @@ export default RoomsCard;
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#ecf0f1',
-      margin:10,
+      margin:20,
       borderRadius:5,
-
+      height:250,
     },
     logo:{
         width:'100%',
-        height:200,
+        height:'60%',
         borderTopLeftRadius:10,
         borderTopRightRadius:10,
     
