@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 //import { ListItem } from 'react-native-elements';
 import {useNavigation} from '@react-navigation/native'
+import { useRoute } from "@react-navigation/native";
 import { View, Text, StyleSheet, SafeAreaView, TextInput,Button, Image, TouchableOpacity,ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
@@ -8,8 +9,17 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 const ConfirmBook = () => {
 const navigation = useNavigation();
 
-
+const route = useRoute();
     
+  const id = route.params.key;
+const startDate = route.params.sDate;
+const endDate = route.params.eDate;
+const adultPlus = route.params.Aplus;
+const childPlus = route.params.cPlus;
+const roomPlus = route.params.rPlus;
+const price = route.params.Price;
+const Total = adultPlus+childPlus;
+ const Amount = roomPlus* price*2;  
     return (
         
         <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
@@ -23,16 +33,16 @@ const navigation = useNavigation();
             }}
           />
         </View>
-        < Text style={styles.textInfo}>
-        <Text style={{flexDirection:'row'}}>CheckIn Date:</Text>
-        <Text style={{flexDirection:'row'}}>CheckIn Date:</Text>
-        <Text style={{flexDirection:'row'}}>CheckIn Date:</Text>
-        <Text style={{flexDirection:'row'}}>CheckIn Date:</Text>
-        </Text>
+        <View View style={styles.textInfo}>
+        <Text style={styles.Text} >Check In Date: {startDate}</Text>
+        <Text style={styles.Text}>Check Out Date: {endDate}</Text>
+        <Text style={styles.Text} >Number Of Guests:{Total} </Text>
+        <Text style={styles.Text} >Total Price : {Amount} </Text>
+        </View>
 
         <View style ={styles.ButtomView}>
-  <TouchableOpacity onPress={()=> navigation.navigate("ConfirmBook")}  style={styles.Button} >
-  <Text style={styles.ButtonText}>Get Started</Text>
+  <TouchableOpacity onPress={()=> navigation.navigate("Stripe")}  style={styles.Button} >
+  <Text style={styles.ButtonText}>Finalize booking</Text>
   </TouchableOpacity>
   </View>
        
@@ -87,9 +97,12 @@ alignItems:'center'
     fontSize:16  },
 
     textInfo:{
-        fontSize: 20,
-        flexDirection: 'row'
-
+        flexDirection: 'column',
+        padding:20 ,
+    },
+    Text:{
+      fontSize:20,
+      padding:10
     }
 
  

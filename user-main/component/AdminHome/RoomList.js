@@ -1,31 +1,31 @@
 import {Pressable,ImageBackground,TouchableOpacity,Image,StyleSheet,TextInput,ScrollView,Button,View,Text,Alert,Platform,} from "react-native";
-import Lodge from "./../assets/lodge1.png";
-import Hotel from "./../assets/lodge1.png";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import RoomsCard from "./Views/RoomsCard";
-import Home from "./Views/HotelCard";
-import Nav from "./Views/Nav";
+import RoomsCard from "../Views/RoomsCard";
 import { useRoute } from "@react-navigation/native";
 import { useNavigation } from "@react-navigation/native";
-import { useEffect, useState } from "react";
+
 
 import firebase from "firebase";
 
-export default function HotelView() {
-  const route = useRoute();
+export default function RoomList() {
   const navigation = useNavigation();
-  
+  const route = useRoute();
   const id = route.params.key;
   return (
     <View style={styles.container}>
      
       
-      <Text style = {styles.Hotelnames}>Rooms Available</Text>
+      <Text style = {styles.Hotelnames}>Rooms In Hotel</Text>
       <ScrollView  style ={styles.Rooms}>
          
- <RoomsCard id = {id}></RoomsCard>
- 
+ <RoomsCard id ={id}></RoomsCard>
        </ScrollView>
+
+       <View  style = {styles.ButtonContainer}>
+    <TouchableOpacity onPress={()=>   navigation.navigate("AddRooms",{key:id})}  style={styles.Button2} >
+     <Text style={styles.ButtonText}>Add New Room</Text>
+  </TouchableOpacity>
+    </View>
     </View>
   ); 
 }
@@ -38,6 +38,22 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: 40,
     borderRadius: 10,
+  },
+  ButtonContainer:{
+    display:'flex',
+    height:'15%',
+    alignContent:'center',
+    alignItems:'center',
+    justifyContent:'flex-end'
+      },
+      Button2:{
+    width:'80%',
+    color:'#000',
+    height:40,
+    backgroundColor:'green',
+    borderRadius:20,
+    justifyContent:'center',
+    alignItems:'center'
   },
   Rooms: {
     height: "40%",
@@ -63,10 +79,11 @@ const styles = StyleSheet.create({
     textAlign: "center",
     textDecorationLine: "underline",
     padding: 4,
+    margin:10,
     alignContent: "center",
     justifyContent: "center",
     fontWeight: "bold",
-    fontSize: 20,
+    fontSize: 25,
   },
   HotelLocationView: {
     flexDirection: "row",

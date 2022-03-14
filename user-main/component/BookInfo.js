@@ -23,10 +23,23 @@ const BookInfo = ({route,navigation}) => {
   const [startDate, setstartDate] = useState("2022-03-09");
   const [endDate, setendDate] = useState("2022-03-09");
   const [type, setType] = useState("startDate");
-  const [adultPlus, setAdultPlus] = useState(1);
-  const [childPlus, setChildPlus] = useState(1);
-  const [roomPlus, setRoomPlus] = useState(1);
+  const [adultPlus, setAdultPlus] = useState(0);
+  const [childPlus, setChildPlus] = useState(0);
+  const [roomPlus, setRoomPlus] = useState(0);
   const id = route.params.key;
+
+  const getInfo = () => {
+    navigation.navigate("HotelView",
+    {
+      key:id,
+      sDate:startDate,
+      eDate :endDate,
+      Aplus:adultPlus,
+      cPlus:childPlus,
+      rPlus:roomPlus    
+    })
+  }
+
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
       
@@ -264,7 +277,7 @@ const BookInfo = ({route,navigation}) => {
         }}
       >
         <TouchableOpacity
-          onPress={() => navigation.navigate("HotelView",{key:id})}
+          onPress={ getInfo}
           style={style.Button}
         >
           <Text style={style.ButtonText}>Check Availability</Text>

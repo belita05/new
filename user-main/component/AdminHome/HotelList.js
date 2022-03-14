@@ -1,13 +1,11 @@
 import { Pressable,ImageBackground,TouchableOpacity,Image,StyleSheet,TextInput, Button, View,Text, Alert } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import Nav from './Views/Nav';
-import HomeSearch from './Views/HotelSearch';
-import HotelCard from './Views/HotelCard';
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import Nav from '../Views//Nav'
 import { useState,useEffect} from 'react';
 import firebase from 'firebase';
 import {useNavigation} from '@react-navigation/native'
 
-export default function Search() {
+export default function HotelList() {
 const navigation = useNavigation();
 const [Location,SetLocation]= useState("");
 const [search,setSearch] = useState(false);
@@ -58,7 +56,7 @@ function OnLocationChange(value){
 }
 function searchLocation(){
   firebase.firestore().collection('Hotel')
-  .where('location','==',Location)
+  .where('hotelNamme','==',Location)
   .get()
   .then(results=> results.docs)
   .then(docs => docs.map(doc => ({
@@ -73,14 +71,12 @@ function searchLocation(){
      
   );
 }
-console.log(hotels,"hotels----------------------")
   return (
     <View style={styles.container}>
-   <Nav text={'Home'}></Nav>
-
+   <Nav text={'Hotel Admin'}></Nav>
+  
     <View style= {styles.Search}> 
-      <TextInput style ={styles.SearchInput}  onChangeText={OnLocationChange} placeholder='Search Location'></TextInput>
-
+      <TextInput style ={styles.SearchInput}  onChangeText={OnLocationChange} placeholder='Search Hotel Name'></TextInput>
       <Ionicons  name='search' style={styles.icon} color={'#000'} size={25} onPress={searchLocation}></Ionicons>
       </View>
     <View style ={styles.ButtomView}>
@@ -106,8 +102,8 @@ console.log(hotels,"hotels----------------------")
              <Text style={styles.Info}>5.0</Text>
              </View>
              <View style={styles.InfoView}>
-             <TouchableOpacity style={styles.Button} onPress={()=> navigation.navigate("BookInfo",{key:hotel.id})}>
-     <Text style={styles.ButtonText}>Book Now</Text>
+             <TouchableOpacity style={styles.Button} onPress={()=> navigation.navigate("RoomList",{key:hotel.id})}>
+     <Text style={styles.ButtonText}>View Rooms</Text>
   </TouchableOpacity>
              </View>
          </View>
@@ -119,6 +115,12 @@ console.log(hotels,"hotels----------------------")
         )
 
     }
+    <View  style = {styles.ButtonContainer}>
+    <TouchableOpacity onPress={()=> navigation.navigate("AddHotel")}  style={styles.Button2} >
+     <Text style={styles.ButtonText}>Add New Hotel</Text>
+  </TouchableOpacity>
+    </View>
+    
 </View>
    
     
@@ -135,7 +137,13 @@ const styles = StyleSheet.create({
     marginTop:40,
     backgroundColor:'#fff'
   },
-
+  ButtonContainer:{
+display:'flex',
+height:'15%',
+alignContent:'center',
+alignItems:'center',
+justifyContent:'flex-end'
+  },
   TopView: {
     width:'100%',
     height:'8%',
@@ -148,6 +156,15 @@ const styles = StyleSheet.create({
 alignItems:'center',
 alignContent:'center',
 padding: 5,
+  },
+  Button2:{
+    width:'80%',
+    color:'#000',
+    height:40,
+    backgroundColor:'green',
+    borderRadius:20,
+    justifyContent:'center',
+    alignItems:'center'
   },
   SearchInput: {
     width:'90%',
