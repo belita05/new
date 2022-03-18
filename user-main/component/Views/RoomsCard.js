@@ -26,7 +26,7 @@ const RoomsCard = (props) => {
         .get()
         .then(results=> results.docs)
         .then(docs => docs.map(doc => ({
-            id:docs.id,
+            id:doc.id,
          cost:doc.data().cost,
          type:doc.data().type,
          url:doc.data().url,

@@ -16,10 +16,22 @@ const adultPlus = route.params.Aplus;
 const childPlus = route.params.cPlus;
 const roomPlus = route.params.rPlus;
 const price = route.params.Price;
-const id = route.params.key;
+const  RoomID = route.params.RoomID;
 const Total = adultPlus+childPlus;
 
-
+const getInfo = () => {
+  navigation.navigate("Stripe",
+  {
+    RoomID: RoomID,
+    sDate:startDate,
+    eDate :endDate,
+    Aplus:adultPlus,
+    cPlus:childPlus,
+    rPlus:roomPlus ,
+    tPrice:Amount,
+      
+  })
+}
 
 useEffect(()=>{
 
@@ -30,7 +42,7 @@ useEffect(()=>{
  setAmount(roomPlus*price*nights)
 
 },[])
-console.log(Amount)
+console.log(RoomID);
     return (
         
         <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
@@ -52,7 +64,7 @@ console.log(Amount)
         </View>
 
         <View style ={styles.ButtomView}>
-  <TouchableOpacity onPress={()=> navigation.navigate("Stripe",{Amount:Amount})}  style={styles.Button} >
+  <TouchableOpacity onPress={getInfo}  style={styles.Button} >
   <Text style={styles.ButtonText}>Finalize booking</Text>
   </TouchableOpacity>
   </View>

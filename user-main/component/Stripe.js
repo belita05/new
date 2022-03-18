@@ -4,8 +4,8 @@ import {useNavigation} from '@react-navigation/native';
 import { CreditCardInput } from "react-native-credit-card-input";
 import { Secret_key,  STRIPE_PUBLISHABLE_KEY} from './Keys';
 import { TextInput } from 'react-native-gesture-handler';
-
-
+import { useRoute } from "@react-navigation/native";
+import firebase from 'firebase';
 
 const CURRENCY = 'USD';
 var CARD_TOKEN = null;
@@ -55,11 +55,21 @@ function getCreditCardToken(creditCardData){
   });
 };
 
-const Stripe= ({route}) => {
-const{Amount}=route.params
-  const navigation = useNavigation();
+const Stripe= () => {
 
-console.log(Amount,'gggggggggggg')
+  const navigation = useNavigation();
+ 
+
+const route = useRoute();
+const Amount = route.params.tPrice;
+const startDate = route.params.sDate;
+const endDate = route.params.eDate;
+const adultPlus = route.params.Aplus;
+const childPlus = route.params.cPlus;
+const roomPlus = route.params.rPlus;
+const  RoomID = route.params.RoomID;
+const UserID = firebase.auth().currentUser.uid
+ console.log(RoomID);
   const [CardInput, setCardInput] = React.useState({})
 
   const onSubmit = async () => {
@@ -90,11 +100,25 @@ console.log(Amount,'gggggggggggg')
     } else {
      
       let pament_data = await charges();
-      console.log('pament_data', pament_data);
+   //   console.log('pament_data', pament_data);
       if(pament_data.status == 'succeeded')
       {
-        alert("Payment Successfully");
-        navigation.navigate("ApprovedPay")
+        console.log('payment done');
+        firebase.firestore().collection("Bookings").add({
+          RoomID: RoomID,
+          UserID:UserID,
+          TotalCost:Amount,
+          Adults:adultPlus,
+          Children:childPlus,
+          Roomms:roomPlus,
+          StartDate:startDate,
+          EndDate:endDate,
+      }).then(() => {
+          alert("Payment Successfully");
+          navigation.navigate("TabScreen")
+          
+        });
+     
 
       }
       else{
