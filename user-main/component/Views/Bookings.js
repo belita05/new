@@ -94,21 +94,34 @@ export default Bookings;
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
         backgroundColor: "#ecf0f1",
-        margin: 5,
+        margin: 10,
         borderRadius: 10,
         padding: 10,
-    
+        flexDirection: 'column',
     },
     info: {
-     
-    
   
+  
+    
+    
     },
+
     textInfo:{
       fontSize: 15,
       fontWeight:'bold',
       flexDirection: 'column'
+    },
+    ButtonText:{
+      backgroundColor: 'red',
+      width: 60,
+      justifyContent: 'center',
+      textAlign: 'center',
+      marginBottom: 20,
+      margin: 20
+      
+
     }
   });
   

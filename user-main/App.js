@@ -19,6 +19,7 @@ import AddHotel from './component/AdminHome/AddHotel'
 import RoomList from './component/AdminHome/RoomList';
 import AddRooms from './component/AdminHome/AddRooms';
 import ApprovedPay from './component/ApprovedPay';
+import Map from './component/Map';
 import firebase from 'firebase';
 
 const Stack = createNativeStackNavigator();
@@ -59,6 +60,7 @@ export default function App() {
            <Stack.Screen name="ConfirmBook" component={ConfirmBook}/>
            <Stack.Screen name= "Stripe" component={Stripe}/>
            <Stack.Screen name= "ApprovedPay" component={ApprovedPay}/>
+           <Stack.Screen name= "Map" component={Map}/>
            
       </Stack.Navigator>
     </NavigationContainer>

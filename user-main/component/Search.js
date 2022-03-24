@@ -92,7 +92,9 @@ console.log(hotels,"hotels----------------------")
          <Image style={styles.logo} source={{uri: hotel.url}}></Image>
          <Text style = {styles.Hotelname}>{hotel.hotelName}</Text>
          <View style={styles.HotelLocationView} >
-         <Ionicons name='location' color={'grey'} size={15}></Ionicons>
+           <TouchableOpacity  onPress={()=> navigation.navigate("Map")} >
+         <Ionicons name='location' color={'grey'} size={25}></Ionicons>
+         </TouchableOpacity>
          <Text style= {styles.HotelLocation}>{hotel.location}</Text>
          </View>
          <View style={styles.HotelLocationView} >
