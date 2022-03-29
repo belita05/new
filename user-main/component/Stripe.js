@@ -211,7 +211,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   button : {
-    backgroundColor:'#2471A3',
+    backgroundColor:'#E3AC1E',
     width:150,
     height:45,
     alignSelf:'center',
@@ -250,7 +250,7 @@ alignItems:'center'
     borderRadius:5
   },
   inputStyle : {
-    backgroundColor:'#222242',
+    backgroundColor:'grey',
     paddingLeft:15,
     borderRadius:5,
     color:'#fff'
