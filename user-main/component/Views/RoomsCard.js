@@ -17,7 +17,7 @@ const RoomsCard = (props) => {
    const adultPlus = route.params.Aplus;
    const childPlus = route.params.cPlus;
    const roomPlus = route.params.rPlus;
-
+  const hotelName = props.hotelName;
 
     useEffect (()=>{
     
@@ -71,7 +71,8 @@ const RoomsCard = (props) => {
                 eDate :endDate,
                 Aplus:adultPlus,
                 cPlus:childPlus,
-                rPlus:roomPlus 
+                rPlus:roomPlus ,
+                hotelName: hotelName
                 })}  style={styles.Button} >
      <Text style={styles.ButtonText}>Book</Text>
   </TouchableOpacity>

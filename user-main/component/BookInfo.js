@@ -17,7 +17,7 @@ const BookInfo = ({route,navigation}) => {
   const [childPlus, setChildPlus] = useState(0);
   const [roomPlus, setRoomPlus] = useState(0);
   const id = route.params.key;
-
+  const hotelName = route.params.hotelName;
   const getInfo = () => {
     navigation.navigate("HotelView",
     {
@@ -26,7 +26,8 @@ const BookInfo = ({route,navigation}) => {
       eDate :endDate,
       Aplus:adultPlus,
       cPlus:childPlus,
-      rPlus:roomPlus    
+      rPlus:roomPlus ,
+      hotelName: hotelName,
     })
   }
 

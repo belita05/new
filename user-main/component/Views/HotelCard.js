@@ -67,7 +67,7 @@ const Home = (props) => {
               <TouchableOpacity
                 style={styles.Button}
                 onPress={() =>
-                  navigation.navigate("HotelView", { key: hotel.id })
+                  navigation.navigate("HotelView", { key: hotel.id ,hotelName: hotel.hotelName})
                 }
               >
                 <Text style={styles.ButtonText}>Book Now</Text>

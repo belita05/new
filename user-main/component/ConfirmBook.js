@@ -17,6 +17,7 @@ const childPlus = route.params.cPlus;
 const roomPlus = route.params.rPlus;
 const price = route.params.Price;
 const  RoomID = route.params.RoomID;
+const hotelName = route.params.hotelName;
 const Total = adultPlus+childPlus;
 
 const getInfo = () => {
@@ -29,6 +30,7 @@ const getInfo = () => {
     cPlus:childPlus,
     rPlus:roomPlus ,
     tPrice:Amount,
+    hotelName:hotelName
       
   })
 }
@@ -57,6 +59,7 @@ console.log(RoomID);
           />
         </View>
         <View View style={styles.textInfo}>
+          
         <Text style={styles.Text} >Check In Date: {startDate}</Text>
         <Text style={styles.Text}>Check Out Date: {endDate}</Text>
         <Text style={styles.Text} >Number Of Guests:{Total} </Text>
@@ -130,7 +133,8 @@ const styles = StyleSheet.create({
         borderBottomRightRadius: 10,
         borderTopRightRadius: 10,
         borderTopLeftRadius: 10,
-        // paddingRight: 20
+        // paddingRight: 20,
+        margin: 30
     },
 
     Text:{

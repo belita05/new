@@ -108,7 +108,7 @@ console.log(hotels,"hotels----------------------")
              <Text style={styles.Info}>5.0</Text>
              </View>
              <View style={styles.InfoView}>
-             <TouchableOpacity style={styles.Button} onPress={()=> navigation.navigate("BookInfo",{key:hotel.id})}>
+             <TouchableOpacity style={styles.Button} onPress={()=> navigation.navigate("BookInfo",{key:hotel.id, hotelName:hotel.hotelName})}>
              <Text style={styles.ButtonText}>Book Now</Text>
              </TouchableOpacity>
              </View>

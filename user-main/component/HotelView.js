@@ -15,12 +15,13 @@ export default function HotelView() {
   const navigation = useNavigation();
   
   const id = route.params.key;
+  const hotelName = route.params.hotelName;
   return (
   <View style={styles.container}>
   <Text style = {styles.Hotelnames}>Rooms Available</Text>
    <ScrollView  style ={styles.Rooms}>
          
- <RoomsCard id = {id}></RoomsCard>
+ <RoomsCard id = {id}   hotelName = {hotelName}></RoomsCard>
  
        </ScrollView>
     </View>

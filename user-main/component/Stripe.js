@@ -67,9 +67,10 @@ const endDate = route.params.eDate;
 const adultPlus = route.params.Aplus;
 const childPlus = route.params.cPlus;
 const roomPlus = route.params.rPlus;
+const hotelName = route.params.hotelName;
 const  RoomID = route.params.RoomID;
 const UserID = firebase.auth().currentUser.uid
- console.log(RoomID);
+ console.log(hotelName);
   const [CardInput, setCardInput] = React.useState({})
 
   const onSubmit = async () => {
@@ -113,6 +114,7 @@ const UserID = firebase.auth().currentUser.uid
           Roomms:roomPlus,
           StartDate:startDate,
           EndDate:endDate,
+          hotelName:hotelName
       }).then(() => {
           alert("Payment Successfully");
           navigation.navigate("TabScreen")

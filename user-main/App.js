@@ -1,3 +1,4 @@
+import registerNNPushToken from 'native-notify';
 import { StatusBar } from 'expo-status-bar';
 import React, {useState,useEffect} from 'react';
 import Start from './component/Start';
@@ -25,7 +26,7 @@ import firebase from 'firebase';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-
+  registerNNPushToken(2379, 'DSNZ47bYWdlRhSxggJNMDL');
     return (
       <NavigationContainer>
       <Stack.Navigator>

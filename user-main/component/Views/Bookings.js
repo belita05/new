@@ -43,7 +43,8 @@ const Bookings  = () =>
               RoomID:doc.data().RoomID,
               Roomms:doc.data().Roomms,
               StartDate:doc.data().StartDate,
-              TotalCost:doc.data().TotalCost
+              TotalCost:doc.data().TotalCost,
+              hotelName: doc.data().hotelName
             }))
           )
           .then((Bookings) => SetBookings(Bookings))
@@ -71,8 +72,7 @@ const Bookings  = () =>
         <View style={styles.container}>
             {Bookings?.map((Booking) => (
         <View style={styles.info}>
-        <Text style={styles.textInfo}>Hotel Name : </Text>
-        <Text style={styles.textInfo}>Room Type : </Text>
+        <Text style={styles.textInfo}>Hotel Name : {Booking.hotelName} </Text>
           <Text style={styles.textInfo}>Number of Guests : {Booking.Adults + Booking.Children}</Text>
           <Text style={styles.textInfo}>Number of Rooms : {Booking.Roomms}</Text>
           <Text style={styles.textInfo}>Total Amount : R{Booking.TotalCost}</Text>
@@ -95,14 +95,17 @@ export default Bookings;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#ecf0f1",
+       
         margin: 10,
         borderRadius: 10,
         padding: 10,
         flexDirection: 'column',
     },
     info: {
-  
+
+      backgroundColor: "#ecf0f1",
+  marginTop: 10,
+  borderRadius: 10
   
     
     
@@ -111,15 +114,19 @@ const styles = StyleSheet.create({
     textInfo:{
       fontSize: 15,
       fontWeight:'bold',
-      flexDirection: 'column'
+      flexDirection: 'column',
+      padding: 5
+
     },
     ButtonText:{
-      backgroundColor: 'red',
-      width: 60,
+      backgroundColor: 'grey',
+      width: 70,
       justifyContent: 'center',
       textAlign: 'center',
       marginBottom: 20,
-      margin: 20
+      margin: 20,
+      borderRadius: 10,
+      
       
 
     }
